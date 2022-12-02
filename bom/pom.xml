@@ -35,7 +35,7 @@
         <dependencies>
             <dependency>
                 <groupId>io.seata</groupId>
-                <artifactId>seata-all</artifactId>
+                <artifactId>seata-all-zeasn</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -190,7 +190,7 @@
             </dependency>
             <dependency>
                 <groupId>io.seata</groupId>
-                <artifactId>seata-rm-datasource</artifactId>
+                <artifactId>seata-rm-datasource-zeasn</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!-- the 'seata-server' is an application, not a dependency

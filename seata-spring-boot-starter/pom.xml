@@ -23,7 +23,7 @@
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>seata-spring-boot-starter</artifactId>
+    <artifactId>seata-spring-boot-starter-zeasn</artifactId>
     <packaging>jar</packaging>
     <name>seata-spring-boot-starter ${project.version}</name>
     <description>spring-boot-starter for Seata built with Maven</description>
@@ -37,7 +37,7 @@
         <!--seata-->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>seata-all</artifactId>
+            <artifactId>seata-all-zeasn</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!--spring-->

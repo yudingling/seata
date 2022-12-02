@@ -32,7 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>io.seata</groupId>
-            <artifactId>seata-rm-datasource</artifactId>
+            <artifactId>seata-rm-datasource-zeasn</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

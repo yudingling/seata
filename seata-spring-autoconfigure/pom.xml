@@ -38,7 +38,7 @@
         <!--seata-->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>seata-all</artifactId>
+            <artifactId>seata-all-zeasn</artifactId>
             <version>${project.version}</version>
             <optional>true</optional>
         </dependency>
