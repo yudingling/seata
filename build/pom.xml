@@ -310,7 +310,7 @@
                         </executions>
                     </plugin>
                     <!-- Staging -->
-                    <plugin>
+                    <!-- <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>${nexus-staging-maven-plugin.version}</version>
@@ -320,7 +320,7 @@
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
-                    </plugin>
+                    </plugin> -->
                     <!-- GPG -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -341,17 +341,6 @@
                     </plugin>
                 </plugins>
             </build>
-            <!-- distribution management -->
-            <distributionManagement>
-                <repository>
-                    <id>oss_seata</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>oss_seata</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-            </distributionManagement>
         </profile>
 
         <profile>
@@ -375,4 +364,22 @@
             </properties>
         </profile>
     </profiles>
+
+	<!-- distribution management -->
+	<distributionManagement>
+		<!-- <repository> <id>oss_seata</id> <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> 
+			</repository> <snapshotRepository> <id>oss_seata</id> <url>https://oss.sonatype.org/content/repositories/snapshots</url> 
+			</snapshotRepository> -->
+		<snapshotRepository>
+			<id>user-snapshot</id>
+			<name>User Porject Snapshot</name>
+			<url>http://nexus.zeasn.com/nexus/content/repositories/snapshots/</url>
+			<uniqueVersion>true</uniqueVersion>
+		</snapshotRepository>
+		<repository>
+			<id>user-release</id>
+			<name>User Porject Release</name>
+			<url>http://nexus.zeasn.com/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
 </project>

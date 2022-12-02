@@ -80,7 +80,7 @@ public class MysqlTableMetaCache extends AbstractTableMetaCache {
         String sql = "SELECT * FROM " + ColumnUtils.addEscape(tableName, JdbcConstants.MYSQL) + " LIMIT 1";
         try (Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql)) {
-            return resultSetMetaToSchema(rs.getMetaData(), connection.getMetaData());
+            return resultSetMetaToSchema(rs.getMetaData(), connection.getMetaData(), connection.getCatalog());
         } catch (SQLException sqlEx) {
             throw sqlEx;
         } catch (Exception e) {
@@ -88,11 +88,16 @@ public class MysqlTableMetaCache extends AbstractTableMetaCache {
         }
     }
 
-    private TableMeta resultSetMetaToSchema(ResultSetMetaData rsmd, DatabaseMetaData dbmd)
+    private TableMeta resultSetMetaToSchema(ResultSetMetaData rsmd, DatabaseMetaData dbmd, String connCatalogName)
         throws SQLException {
         //always "" for mysql
         String schemaName = rsmd.getSchemaName(1);
-        String catalogName = rsmd.getCatalogName(1);
+        
+        //update by zd.
+        // When using mycat, catalog from DatabaseMetaData may not be the name of the logical database, just use the logical database name directly
+        //String catalogName = rsmd.getCatalogName(1);
+        String catalogName = connCatalogName;
+        
         /*
          * use ResultSetMetaData to get the pure table name
          * can avoid the problem below
