@@ -92,11 +92,7 @@ public class MysqlTableMetaCache extends AbstractTableMetaCache {
         throws SQLException {
         //always "" for mysql
         String schemaName = rsmd.getSchemaName(1);
-        
-        //update by zd.
-        // When using mycat, catalog from DatabaseMetaData may not be the name of the logical database, just use the logical database name directly
-        //String catalogName = rsmd.getCatalogName(1);
-        String catalogName = connCatalogName;
+        String catalogName = rsmd.getCatalogName(1);
         
         /*
          * use ResultSetMetaData to get the pure table name
